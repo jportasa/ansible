@@ -1,0 +1,64 @@
+- name: task crear ec2
+  hosts: localhost
+  vars_files:
+    - ../vars/common.yml
+
+  tasks:
+    - debug:
+        msg: OS={{ os }}, code={{ code }}
+
+    - name: crear ec2 os:amazon, code=php
+      ec2:
+        key_name: joan
+        instance_type: t2.nano
+        image: "{{ ami_amazon }}"
+        wait: yes
+        group: launch-wizard-1
+        count: 1
+        vpc_subnet_id: "{{ subnet }}"
+        assign_public_ip: yes
+        region: "{{ region }}"
+        user_data: "{{ lookup('file', '../files/ec2_amazon_user_data.sh') }}"
+        instance_tags:
+          Name: "{{ os }}-{{ code }}-{{ feature }}"
+          os: "{{ os }}"
+          code: "{{ code }}"
+          feature: "{{ feature }}"
+      when: os == "amazon" and code == "php"
+
+    - name: crear ec2 os=ubuntu18, code=php
+      ec2:
+        key_name: joan
+        instance_type: t2.nano
+        image: "{{ ami_ubuntu18 }}"
+        wait: yes
+        group: launch-wizard-1
+        count: 1
+        vpc_subnet_id: "{{ subnet }}"
+        assign_public_ip: yes
+        region: "{{ region }}"
+        user_data: "{{ lookup('file', '../files/ec2_ubuntu18_user_data.sh') }}"
+        instance_tags:
+          Name: "{{ os }}-{{ code }}-{{ feature }}"
+          os: "{{ os }}"
+          code: "{{ code }}"
+          feature: "{{ feature }}"
+      when: os == "ubuntu18" and code == "php"
+
+    - name: crear ec2 os=windows, code=php
+      ec2:
+        key_name: joan
+        instance_type: t2.micro
+        image: "{{ ami_windows }}"
+        wait: yes
+        group: launch-wizard-1
+        count: 1
+        vpc_subnet_id: "{{ subnet }}"
+        assign_public_ip: yes
+        region: "{{ region }}"
+        instance_tags:
+          Name: "{{ os }}-{{ code }}-{{ feature }}"
+          os: "{{ os }}"
+          code: "{{ code }}"
+          feature: "{{ feature }}"
+      when: os == "windows" and code == "php"

@@ -1,0 +1,16 @@
+- name: terminate ec2 with specific tags
+  hosts: localhost
+  tasks:
+  - name: llisto les ec2 que tenen els tags corresponents
+    ec2_instance_facts:
+      filters:
+        "tag:os": ubuntu18
+        "tag:code": php
+      region: us-east-1
+    register: ec2_to_remove
+
+  - name: destrueix ec2
+    ec2:
+      instance_ids: "{{ ec2_to_remove.instances[0].instance_id }}"
+      region: us-east-1
+      state: absent

@@ -1,0 +1,70 @@
+version: "3"
+
+services:
+  vote:
+    image: ubuntu
+    command: sleep 999999999
+    volumes:
+     - ./data/etc/ansible:/etc/ansible
+    ports:
+      - "80:80"
+    networks:
+      - front-tier
+      - back-tier
+
+#  node1:
+#    image: ubuntu:latest
+#    command: sleep 999999999
+#    volumes:
+#      - ./data/node1/app:/app
+#    ports:
+#      - "201:22"
+#    networks:
+#      - front-tier
+#      - back-tier
+#
+#  node2:
+#    image: ubuntu:latest
+#    command: sleep 999999999
+#    volumes:
+#      - ./data/node2/app:/app
+#    ports:
+#      - "202:22"
+#    networks:
+#      - front-tier
+#      - back-tier
+
+#
+#  worker:
+#    build:
+#      context: ./worker
+#    depends_on:
+#      - "redis"
+#      - "db"
+#    networks:
+#      - back-tier
+#
+#  redis:
+#    image: redis:alpine
+#    container_name: redis
+#    ports: ["6379"]
+#    networks:
+#      - back-tier
+#
+#  db:
+#    image: postgres:9.4
+#    container_name: db
+#    environment:
+#      POSTGRES_USER: "postgres"
+#      POSTGRES_PASSWORD: "postgres"
+#    volumes:
+#      - "db-data:/var/lib/postgresql/data"
+#    networks:
+#      - back-tier
+#
+#volumes:
+#  db-data:
+
+networks:
+  front-tier:
+  back-tier:

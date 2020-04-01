@@ -1,0 +1,21 @@
+- name: Install in ec2, os=ubuntu18, code=php, feature {{ feature }}
+  hosts: tag_os_ubuntu18:&tag_code_php:&tag_feature_{{ feature }}
+  roles:
+    - role: nginx
+
+- name: Install in ec2, os=amazon, code=php, feature {{ feature }}
+  hosts: tag_os_amazon:&tag_code_php:&tag_feature_{{ feature }}
+  roles:
+    - role: apache
+
+
+#- name: infra package in ec2, os=amazon, code=python
+#  hosts: tag_os_amazon:&tag_code_python
+#  tasks:
+#    - name: Install infra package {{ feature }} in ec2 {{ os }} {{ code }}
+#      apt:
+#        name: nginx
+#        state: latest
+#      when: os == "amazon" and code == "python"
+
+

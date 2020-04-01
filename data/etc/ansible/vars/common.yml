@@ -1,0 +1,7 @@
+ansible_python_interpreter: /usr/bin/python3
+region: us-east-1
+subnet: subnet-02858318580bbce44
+
+ami_ubuntu18: ami-0b1f276c009937848
+ami_amazon: ami-0fc61db8544a617ed
+ami_windows: nose
