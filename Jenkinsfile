@@ -9,7 +9,7 @@ pipeline {
                 launchType 'FARGATE'
                 memory 1024
                 cpu 512
-                inheritFrom 'jenkins-slave-ansible'
+                inheritFrom 'ansible'
             }
         }
         steps {
