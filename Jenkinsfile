@@ -5,6 +5,7 @@ pipeline {
     stage('Test') {
         agent {
             ecs {
+                cloud 'default-cloud'
                 label 'ecs-ansible'
                 image 'jportasa/ansible-jenkins-slave:1.0'
                 launchType 'FARGATE'
