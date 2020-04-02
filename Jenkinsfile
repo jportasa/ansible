@@ -5,7 +5,6 @@ pipeline {
     stage('Test') {
         agent {
             ecs {
-                image 'jportasa/ansible-jenkins-slave:1.0'
                 launchType 'FARGATE'
                 memory 1024
                 inheritFrom 'ansible'
