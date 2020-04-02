@@ -5,6 +5,7 @@ pipeline {
     stage('Test') {
         agent {
             ecs {
+                cloud 'default-cloud'
                 launchType 'FARGATE'
                 memory 1024
             }
