@@ -3,13 +3,7 @@ pipeline {
 
   stages {
     stage('Test') {
-        agent {
-            ecs {
-                cloud 'default-cloud'
-                launchType 'FARGATE'
-                memory 1024
-            }
-        }
+        agent { label 'ansible'}
         steps {
             sh 'echo hello'
         }
