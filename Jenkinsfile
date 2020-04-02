@@ -7,7 +7,6 @@ pipeline {
             ecs {
                 launchType 'FARGATE'
                 memory 1024
-                inheritFrom 'ansible'
             }
         }
         steps {
