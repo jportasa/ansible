@@ -8,7 +8,6 @@ pipeline {
                 image 'jportasa/ansible-jenkins-slave:1.0'
                 launchType 'FARGATE'
                 memory 1024
-                cpu 512
                 inheritFrom 'ansible'
             }
         }
