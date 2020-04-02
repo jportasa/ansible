@@ -3,7 +3,13 @@ pipeline {
 
   stages {
     stage('Test') {
-        agent { label 'ansible'}
+        agent {
+            ecs {
+                cpu 1024
+                memory 512
+                inheritFrom 'ansible'
+            }
+        }
         steps {
             sh 'echo hello'
         }
