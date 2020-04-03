@@ -5,8 +5,6 @@ pipeline {
     stage('Test') {
         agent {
             ecs {
-                    subnets 'subnet-02858318580bbce44'
-                    securityGroups 'sg-00c646f83600015ce'
             }
         }
         steps {
