@@ -1,8 +1,0 @@
----
-- name: Copiar fichero de hosts a los servidores
-  hosts: all
-  vars:
-    - fitxer: "hosts"
-  tasks:
-    - name: copiar hosts
-      copy: src=/etc/"{{fitxer}}" dest=/tmp/"{{fitxer}}"

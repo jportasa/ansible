@@ -19,6 +19,7 @@
         assign_public_ip: yes
         region: "{{ region }}"
         user_data: "{{ lookup('file', '../files/ec2_amazon_user_data.sh') }}"
+        instance_profile_name: "{{ iam_role }}"
         instance_tags:
           Name: "{{ os }}-{{ code }}-{{ feature }}"
           os: "{{ os }}"
@@ -38,6 +39,7 @@
         assign_public_ip: yes
         region: "{{ region }}"
         user_data: "{{ lookup('file', '../files/ec2_ubuntu18_user_data.sh') }}"
+        instance_profile_name: "{{ iam_role }}"
         instance_tags:
           Name: "{{ os }}-{{ code }}-{{ feature }}"
           os: "{{ os }}"
