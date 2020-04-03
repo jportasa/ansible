@@ -5,9 +5,9 @@ pipeline {
     stage('Test') {
         agent {
             ecs {
-                    cloud 'ecs-cloud'
+                    cloud 'jenkins-slave-ansible'
                     label 'base'
-                    image 'jenkinsci/jnlp-slave'
+                    image 'jportasa/ansible-jenkins-slave'
                     launchType 'FARGATE'
                     memory 1024
                     cpu 256
