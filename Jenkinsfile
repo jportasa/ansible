@@ -8,8 +8,6 @@ pipeline {
                     label 'jenkins-slave-ansible'
                     image 'jenkinsci/jnlp-slave'
                     launchType 'FARGATE'
-                    memory 1024
-                    cpu 256
                     subnets 'subnet-02858318580bbce44'
                     securityGroups 'sg-00c646f83600015ce'
             }
