@@ -13,6 +13,7 @@ pipeline {
                     cpu 256
                     subnets 'subnet-02858318580bbce44'
                     securityGroups 'sg-00c646f83600015ce'
+                    taskrole 'arn:aws:iam::953835556803:role/jenkins-slave-ecr-ro'
             }
         }
         steps {
