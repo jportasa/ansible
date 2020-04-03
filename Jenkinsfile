@@ -5,6 +5,7 @@ pipeline {
     stage('Test') {
         agent {
             ecs {
+                    cloud 'ecs-cloud'
                     label 'base'
                     image 'jenkinsci/jnlp-slave'
                     launchType 'FARGATE'
