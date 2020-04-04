@@ -8,7 +8,7 @@ pipeline {
                 ecs {
                    cloud 'jenkins-slave-ecs'
                    label 'test2'
-                   image 'jenkinsci/jnlp-slave'
+                   image '953835556803.dkr.ecr.us-east-1.amazonaws.com/jenkins-slave-ansible:1.0'
                    launchType 'FARGATE'
                    memory 1024
                    cpu 256
