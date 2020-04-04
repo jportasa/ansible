@@ -16,6 +16,7 @@ pipeline {
                    securityGroups('sg-08f3f54702fb3992e')
                    taskrole 'arn:aws:iam::953835556803:role/ecsTaskExecutionRole'
                    executionRole 'arn:aws:iam::953835556803:role/ecsTaskExecutionRole'
+                   logDriver 'awslogs'
                    assignPublicIp true
                 }
             }
