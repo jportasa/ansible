@@ -5,6 +5,7 @@
 
 - name: Install in ec2, os=amazon, code=php, feature {{ feature }}
   hosts: tag_os_amazon:&tag_code_php:&tag_feature_{{ feature }}
+  user: ec2-user
   roles:
     - role: apache
 

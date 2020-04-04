@@ -9,4 +9,4 @@ ami_ubuntu18: ami-0b1f276c009937848
 ami_amazon: ami-0fc61db8544a617ed
 ami_windows: nose
 
-iam_role: arn:aws:iam::{{ aws_account }}:role/ec2-secretsmanager-rw
+iam_role: ec2-secretsmanager-rw

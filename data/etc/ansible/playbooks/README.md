@@ -44,3 +44,15 @@ ansible-playbook create_jenkins.yml
 
 
 ```
+
+# install ansible
+
+apt-get update
+apt install python2.7 -y
+apt install python-pip -y
+apt install ansible
+apt install openssh-server -y
+pip install boto
+pip install boto3
+install awscli
+ssh-keygen
