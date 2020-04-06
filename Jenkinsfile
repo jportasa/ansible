@@ -3,9 +3,6 @@ pipeline {
 
     stages {
         stage('Test') {
-            when {
-                branch 'master'
-            }
             environment {
                 STAGE='prod'
             }
