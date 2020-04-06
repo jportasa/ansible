@@ -27,6 +27,7 @@ pipeline {
                 sh '''
                     ansible -h
                     echo $(STAGE)
+                    echo $(STAGE)
                    '''
 
             }
