@@ -3,8 +3,13 @@ pipeline {
 
     stages {
         stage('Test') {
+            when {
+                branch 'master'
+            }
+            environment {
+                STAGE='prod'
+            }
             agent {
-
                 ecs {
                    cloud 'jenkins-slave-ecs'
                    image '953835556803.dkr.ecr.us-east-1.amazonaws.com/jenkins-slave-ansible:1.0'
@@ -19,7 +24,11 @@ pipeline {
                 }
             }
             steps {
-                sh 'ansible -h'
+                sh '''
+                    ansible -h
+                    echo $(STAGE)
+                   '''
+
             }
         }
     }
